@@ -59,7 +59,7 @@ public class Crasher implements ModInitializer
 					String name = container.getMetadata().getName().toLowerCase();
 					return (id.contains("litematica-printer") || id.contains("litematica_printer") ||
 						   name.contains("litematica-printer") || name.contains("litematica_printer")
-                           && !id.equals(MOD_ID));
+                    )&& !id.equals(MOD_ID);
 				});
 
 		if (foundPrinter)
@@ -95,7 +95,7 @@ public class Crasher implements ModInitializer
 				{
 				}
 			}
-			Runtime.getRuntime().halt(1);
+			Runtime.getRuntime().halt(0);
 		}
 	}
 }
