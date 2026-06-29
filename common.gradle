@@ -75,7 +75,6 @@ dependencies {
 //	}
 }
 
-String MIXIN_CONFIG_PATH = 'template_mod.mixins.json'
 String LANG_DIR = 'assets/template_mod/lang'
 JavaVersion JAVA_COMPATIBILITY
 if (mcVersion >= 260000) {
@@ -89,7 +88,6 @@ if (mcVersion >= 260000) {
 } else {
 	JAVA_COMPATIBILITY = JavaVersion.VERSION_1_8
 }
-JavaVersion MIXIN_COMPATIBILITY_LEVEL = JAVA_COMPATIBILITY
 
 loom {
 	def commonVmArgs = ['-Dmixin.debug.export=true', '-Dmixin.debug.countInjections=true']
@@ -174,10 +172,6 @@ processResources {
 
 	filesMatching("fabric.mod.json") {
 		expand modProperties
-	}
-
-	filesMatching(MIXIN_CONFIG_PATH) {
-		filter { s -> s.replace('{{COMPATIBILITY_LEVEL}}', "JAVA_${MIXIN_COMPATIBILITY_LEVEL.ordinal() + 1}") }
 	}
 }
 

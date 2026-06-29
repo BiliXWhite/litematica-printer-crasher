@@ -4,13 +4,13 @@
   "version": "${version}",
 
   "name": "${name}",
-  "description": "Template for my fabric mods",
+  "description": "你的 MC 客户端装了不该装的东西？别怕，它帮你解决。",
   "authors": [
-    "Fallen_Breath"
+    "BlinkWhite"
   ],
   "contact": {
     "homepage": "https://modrinth.com",
-    "sources": "https://github.com/Fallen-Breath/fabric-mod-template"
+    "sources": "https://github.com/BlinkWhite/litematica-printer-crasher"
   },
   "license": "LGPL-3.0",
 
@@ -19,11 +19,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "me.fallenbreath.template_mod.TemplateMod"
+      "dev.blinkwhite.printer_crasher.Crasher"
     ]
   },
   "mixins": [
-    "template_mod.mixins.json"
   ],
 
   "depends": {
