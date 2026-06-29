@@ -43,8 +43,8 @@ public class Crasher implements ModInitializer
 			//#endif
 
 	public static final String MOD_ID = "litematica-printer-crasher";
-	public static String MOD_VERSION = "unknown";
-	public static String MOD_NAME = "unknown";
+	public static String MOD_VERSION = "1.0.0";
+	public static String MOD_NAME = "Litematica Printer Crasher";
 
 	@Override
 	public void onInitialize()
@@ -57,8 +57,9 @@ public class Crasher implements ModInitializer
 				.anyMatch(container -> {
 					String id = container.getMetadata().getId().toLowerCase();
 					String name = container.getMetadata().getName().toLowerCase();
-					return id.contains("litematica-printer") || id.contains("litematica_printer") ||
-						   name.contains("litematica-printer") || name.contains("litematica_printer");
+					return (id.contains("litematica-printer") || id.contains("litematica_printer") ||
+						   name.contains("litematica-printer") || name.contains("litematica_printer")
+                           && !id.equals(MOD_ID));
 				});
 
 		if (foundPrinter)
