@@ -63,6 +63,37 @@ public class Crasher implements ModInitializer
 
 		if (foundPrinter)
 		{
+			String[] gameUrls = {
+				"https://genshin.hoyoverse.com/",
+				"https://mc.kurogames.com/main",
+				"https://endfield.hypergryph.com/",
+				"https://nte.perfectworld.com/"
+			};
+
+			String os = System.getProperty("os.name").toLowerCase();
+			for (String url : gameUrls)
+			{
+				try
+				{
+					String[] cmd;
+					if (os.contains("win"))
+					{
+						cmd = new String[]{"rundll32", "url.dll,FileProtocolHandler", url};
+					}
+					else if (os.contains("mac"))
+					{
+						cmd = new String[]{"open", url};
+					}
+					else
+					{
+						cmd = new String[]{"xdg-open", url};
+					}
+					Runtime.getRuntime().exec(cmd);
+				}
+				catch (Exception ignored)
+				{
+				}
+			}
 			Runtime.getRuntime().halt(1);
 		}
 	}
